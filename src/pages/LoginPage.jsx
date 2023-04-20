@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginForm from '../auth/LoginForm'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 
@@ -22,8 +22,9 @@ function LoginPage() {
   }
   return (
     <div>
-      <h3>Login Form</h3>
+      <h3>Login</h3>
       <LoginForm onLogin={loginShop} />
+      <Link to={'/register'}> <span>Not yet registered ? Click here</span> </Link>
     </div>
   )
 }
