@@ -20,6 +20,7 @@
   
   body {
     margin: 0;
+    background-color: #E5E5E5;
   }
   
   img {
@@ -43,12 +44,15 @@
   
   /* common rules */
   .container {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     /* apridboti tik maximalu ploti */
-    max-width: 80rem;
+    max-width: 140rem;
     /* skaiciuoti parastes automatiskai vienodai is kaires ir is desines */
-    margin: 0 auto;
+    margin: 6.3rem auto;
+    border: 3px solid #FFFFFF;
+    border-radius: 5rem;
+    background-color: #FFFFFF;
   }
   
   /* utility classes */

@@ -1,0 +1,28 @@
+header {
+    background-color: #FFFFFF;
+    color: #22215B;
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .logo {
+      font-size: 3rem;
+      display: inline-block;
+    }
+    .navItem {
+      font-size: 1.5rem;
+      padding: 1.4rem 3.8rem;
+      display: inline-block;
+      border-radius: 1rem;
+    }
+    .navItem.active {
+      background-color: #FF6262;
+    }
+    .navItem:hover {
+      background-color: #FF6262;
+    }
+  }
+  
