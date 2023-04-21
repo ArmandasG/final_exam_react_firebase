@@ -1,6 +1,5 @@
 header {
     background-color: #FFFFFF;
-    color: #22215B;
     .container {
       display: flex;
       align-items: center;
@@ -17,6 +16,7 @@ header {
       padding: 1.4rem 3.8rem;
       display: inline-block;
       border-radius: 1rem;
+      transition: 0.4s;
     }
     .navItem.active {
       background-color: #FF6262;

@@ -1,5 +1,6 @@
 import { useFormik } from 'formik'
 import React from 'react'
+import './loginAndRegisterForm.scss'
 
 function RegisterForm({onRegister}) {
   const formik = useFormik({
@@ -13,6 +14,7 @@ function RegisterForm({onRegister}) {
     }
   })
   return (
+    <div className='formEl'>
     <form onSubmit={formik.handleSubmit}>
       <div>
         <label className=''>Email</label>
@@ -24,8 +26,9 @@ function RegisterForm({onRegister}) {
         <input className='' id='password' type="password" name='password' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.password} />
         {formik.touched.password && formik.errors.password ? (<div>{formik.errors.password}</div>) : null }
       </div>
-      <button type='submit'>Register</button>
+      <button className='btn' type='submit'>Register</button>
     </form>
+    </div>
   )
 }
 

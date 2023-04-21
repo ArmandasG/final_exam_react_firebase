@@ -1,0 +1,44 @@
+.innerFormEl {
+    min-height: 50rem;
+    max-width: fit-content;
+    margin: auto;
+padding: 2rem 2rem;
+    border-radius: 3rem;
+    background: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+    h1 {
+        text-align: center;
+        font-size: 4rem;
+        color: #FFFFFF;
+    };
+    .additional{
+        padding-left: 2rem;
+        color: #FFFFFF;
+        p {
+            display: inline-block;
+        }
+        span {
+            font-style: italic;
+            font-weight: bold;
+            transition: 0.4s;
+        };
+        span:hover{
+color: #FF6262;
+        }
+    }
+}
+
+.innerFormEl {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.innerFormEl form{
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+};
+.innerFormEl form button {
+margin-top: 3rem;
+};

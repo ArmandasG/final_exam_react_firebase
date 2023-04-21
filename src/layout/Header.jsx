@@ -10,9 +10,6 @@ function Header() {
                 Logo
             </Link>
             <nav>
-                <NavLink className='navItem' to={'/'}>
-                    Home
-                </NavLink>
                 <NavLink className='navItem' to={'/shops'}>
                     Shops
                 </NavLink>

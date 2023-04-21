@@ -21,6 +21,7 @@
   body {
     margin: 0;
     background-color: #E5E5E5;
+    color: #22215B;
   }
   
   img {
@@ -75,10 +76,10 @@
   select {
     font-size: 16px;
     padding: 0.3em 0.8em;
-    border-radius: 4px;
+    border-radius: 8px;
     border: 1px solid #777;
     display: block;
-    max-width: 300px;
+    /* max-width: 300px; */
   }
   textarea {
     min-height: 5rem;
@@ -87,11 +88,16 @@
   }
   
   button {
-    font-size: 16px;
-    padding: 0.3em 0.8em;
-    border-radius: 4px;
-    border: 1px solid #777;
+    font-size: 1.8rem;
+    color: #22215B;
+    background-color: #FFFFFF;
+    line-height: 2.2rem;
+    padding: 2.4rem 6.3rem;
+    border-radius: 1.6rem;
+    border: 1px solid #22215B;
     cursor: pointer;
+    transition: 0.4s;
+    /* margin: auto; */
   }
   
   .unlisted {

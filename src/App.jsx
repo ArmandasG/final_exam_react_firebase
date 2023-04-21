@@ -1,7 +1,6 @@
 import "./styles/reset.css";
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ShopsPage from "./pages/ShopsPage";
@@ -12,11 +11,11 @@ import Footer from "./layout/Footer";
 
 function App() {
   return (
-    <div className="container">
-      <div className="maincontainer">
+    <div className="">
+      <div className="container">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/shops" element={<ShopsPage />} />
