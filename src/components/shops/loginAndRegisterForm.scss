@@ -1,0 +1,28 @@
+.btn:hover {
+    background-color: #FF6262;
+    color: #E6E5FF;
+}
+
+label {
+    font-size: 2rem;
+    margin-top: 1rem;
+    color: #FFFFFF
+}
+
+input {
+    min-width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.err{
+    transform: translate(30%);
+  transition: transform ease-in 0.3s;
+    font-size: 2rem;
+    color: #f09090;
+    padding-bottom: 1rem;
+}
+
+.noErr{
+    min-height: 3.4rem;
+}
