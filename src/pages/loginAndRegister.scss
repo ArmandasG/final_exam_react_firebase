@@ -1,8 +1,10 @@
 .innerFormEl {
-    min-height: 50rem;
-    max-width: fit-content;
-    margin: auto;
-padding: 2rem 2rem;
+    min-height: 70rem;
+    max-width: 130rem;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 3rem;
     background: linear-gradient(to top, #4481eb 0%, #04befe 100%);
     h1 {
@@ -11,6 +13,7 @@ padding: 2rem 2rem;
         color: #FFFFFF;
     };
     .additional{
+        text-align: center;
         padding-left: 2rem;
         color: #FFFFFF;
         p {
@@ -31,6 +34,7 @@ color: #FF6262;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 10rem 20rem;
 }
 
 .innerFormEl form{

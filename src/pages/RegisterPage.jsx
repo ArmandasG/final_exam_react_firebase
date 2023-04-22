@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import RegisterForm from "../auth/RegisterForm";
+import RegisterForm from "../components/auth/RegisterForm";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
-import './loginAndRegister.scss'
+import "./loginAndRegister.scss";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function RegisterPage() {
         // Signed in
         const user = userCredential.user;
         // ...
-        navigate("/");
+        navigate("/shops");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -28,10 +28,10 @@ function RegisterPage() {
         <h1>Register</h1>
         <RegisterForm onRegister={registerToShop} />
         <div className="additional">
-<p>Already registered ?</p>
+          <p>Already registered ?</p>
           <Link to={"/login"}>
             {" "}
-            <span>Click here</span>{" "}
+            <span>Click here to login</span>{" "}
           </Link>
         </div>
       </div>

@@ -4,16 +4,18 @@ import { auth } from "../firebase/firebase";
 
 const AuthContext = createContext({
   user: {},
+  token:{},
+  isLoggedIn: false,
   isLoading: false,
-  login() {},
-  logout() {},
-  register() {},
   feedback: {
     show: false,
     message: "",
     type: "",
   },
+  ui: {},
 });
+
+const localTokenKey = 'LOCAL_TOKEN'
 
 AuthContext.displayName = "Authentification";
 
@@ -22,34 +24,37 @@ function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [feedback, setFeedback] = useState({
     show: false,
-    msg: '',
-    type: '',
-  })
-
-
-
+    msg: "",
+    type: "",
+  });
+console.log('user ===', user);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
         console.log("prisijungimas", user.email);
         setUser(user);
+        localStorage.setItem(localTokenKey, user.accessToken)
         setFeedback({
-            show: true,
-            msg: 'User logged in',
-            type: 'success',
-          });
+          show: true,
+          msg: "User logged in",
+          type: "success",
+        });
       } else {
         console.log("Logout User");
         setUser(null);
+        localStorage.removeItem(localTokenKey)
       }
     });
   }, []);
+
+  const isLoggedIn = !!user
 
   const authCtx = {
     user,
     isLoading,
     setIsLoading,
+    isLoggedIn,
   };
 
   return (

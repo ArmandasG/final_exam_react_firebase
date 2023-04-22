@@ -3,7 +3,7 @@ import './footer.scss'
 
 function Footer() {
   return (
-    <footer>Copyright 2023</footer>
+    <footer>Copyright 2023 &copy;</footer>
   )
 }
 
