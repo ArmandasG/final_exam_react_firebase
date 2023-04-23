@@ -10,8 +10,8 @@ function LoginForm({ onLogin }) {
       password: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('has to be an email example: email@email.com').required(),
-      password: Yup.string().min(6, 'at least 6 simbols are required').required(),
+      email: Yup.string().email('Has to be an email').required(),
+      password: Yup.string().min(6, 'At least 6 simbols are required').required(),
           }),
     onSubmit: (values) => {
       console.log("values ===", values);

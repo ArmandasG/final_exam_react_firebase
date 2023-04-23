@@ -7,11 +7,11 @@ import './shopsPage.scss'
 import { useAuthCtx } from "../store/AuthProvider";
 
 function ShopsPage() {
-  const {ui} = useAuthCtx()
+  const {ui, isLoading, setIsLoading} = useAuthCtx()
   const [shopsArr, setShopsArr] = useState([]);
-
   useEffect(() => {
     async function getShops() {
+      setIsLoading(true)
       try {
         const querySnapshot = await getDocs(collection(db, "shops"));
         const tempShops = [];
@@ -22,6 +22,7 @@ function ShopsPage() {
           });
         });
         setShopsArr(tempShops);
+        setIsLoading(false)
       } catch (error) {
         console.warn("getShops error", error.message);
         ui.showError('Only available for registered users')
@@ -29,13 +30,15 @@ function ShopsPage() {
     }
     getShops();
   }, []);
+  console.log('isLoading ===', isLoading);
   return (
     <section className="shops">
       <h1>Available shops</h1>
-        {shopsArr.length !== 0 && (<ul className="shopItems"> {shopsArr.map((sObj) => (<SingleShop key={sObj.uid} shops={sObj} />))} </ul>)
+{isLoading && <div>Loading...</div>}
+        {shopsArr.length !== 0 && !isLoading && (<ul className="shopItems"> {shopsArr.map((sObj) => (<SingleShop key={sObj.uid} shops={sObj} />))} </ul>)
           }
       
-      {shopsArr.length === 0 && (
+      {shopsArr.length === 0 && !isLoading && (
         <div>
           <h2>There are no available shops</h2>
           <Link to={"/shops/new"}>Try adding one</Link>

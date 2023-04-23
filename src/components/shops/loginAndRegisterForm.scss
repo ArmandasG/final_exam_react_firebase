@@ -19,10 +19,20 @@ input, textarea {
     transform: translate(30%);
   transition: transform ease-in 0.3s;
     font-size: 2rem;
-    color: #f09090;
+    color: #FF5A5A;
     padding-bottom: 1rem;
 }
 
 .noErr{
     min-height: 3.4rem;
+}
+
+.disabled {
+    color: gray;
+    background-color: white;
+}
+
+.disabled:hover {
+    color: gray;
+    background-color: white;
 }

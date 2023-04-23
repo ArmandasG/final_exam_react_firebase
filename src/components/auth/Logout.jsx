@@ -6,13 +6,17 @@ import "./logout.scss";
 import { useNavigate } from "react-router-dom";
 
 function Logout() {
+  const { ui, setIsLoading } = useAuthCtx()
   const { isLoggedIn, logout } = useAuthCtx();
   const navigate = useNavigate();
   function logoutShop() {
+    ui.showLoading()
+    setIsLoading(true)
     signOut(auth)
       .then(() => {
-        logout();
+        setIsLoading(false)
         navigate('/login')
+        ui.showSuccess('Logged out')
       })
       .catch((error) => {});
   }

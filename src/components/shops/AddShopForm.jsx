@@ -2,8 +2,16 @@ import { useFormik } from "formik";
 import React from "react";
 import "./loginAndRegisterForm.scss";
 import * as Yup from "yup";
+import { useAuthCtx } from "../../store/AuthProvider";
 
 function AddShopForm({ onAdd }) {
+  const {isLoading} = useAuthCtx()
+  let disabled = '';
+
+  if (isLoading) {
+    disabled = 'disabled'
+  }
+
   const formik = useFormik({
     initialValues: {
       shopName: "",
@@ -116,7 +124,7 @@ function AddShopForm({ onAdd }) {
             <div className="noErr"></div>
           )}
         </div>
-        <button className="btn" type="submit">
+        <button disabled={isLoading} className={`${disabled} btn`} type="submit">
           Add
         </button>
       </form>

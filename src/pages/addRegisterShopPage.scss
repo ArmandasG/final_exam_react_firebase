@@ -47,3 +47,16 @@ color: #FF6262;
 .innerFormEl form button {
 margin-top: 3rem;
 };
+
+.btnGoogle{
+    margin-top: 3rem;
+    font-size: 2.5rem;
+    line-height: 2rem;
+    img {
+        width: 100%;
+        height: 100%;
+        max-width: 3rem;
+        max-height: 3rem;
+        padding-top: 0.1rem;
+    }
+}
