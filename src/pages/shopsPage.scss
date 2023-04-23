@@ -16,6 +16,14 @@
     }
 }
 
+.isLoadingShop{
+    text-align: center;
+margin-top: 5rem;
+p{
+    font-size: 5rem;
+    color: white;
+}
+}
 
 .shopItems {
     padding: 7rem;
@@ -36,3 +44,19 @@
     
 }
 
+.noShops{
+margin-top: 5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.noShops .tryAdding {
+    display: block;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.noShops .tryAdding:hover {
+    color: #FF6262
+}

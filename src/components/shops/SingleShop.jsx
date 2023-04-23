@@ -1,5 +1,6 @@
 import React from 'react'
 import './singleshop.scss'
+import PropTypes from 'prop-types';
 
 function SingleShop({ shops }) {
   return (
@@ -16,5 +17,9 @@ function SingleShop({ shops }) {
     </li>
   )
 }
+
+SingleShop.propTypes = {
+  shops: PropTypes.object,
+};
 
 export default SingleShop

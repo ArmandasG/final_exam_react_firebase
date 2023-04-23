@@ -3,6 +3,7 @@ import React from "react";
 import "./loginAndRegisterForm.scss";
 import * as Yup from "yup";
 import { useAuthCtx } from "../../store/AuthProvider";
+import PropTypes from 'prop-types';
 
 function AddShopForm({ onAdd }) {
   const {isLoading} = useAuthCtx()
@@ -37,7 +38,6 @@ function AddShopForm({ onAdd }) {
         .required(),
     }),
     onSubmit: (values) => {
-      console.log("values ===", values);
       onAdd(values);
     },
   });
@@ -131,5 +131,9 @@ function AddShopForm({ onAdd }) {
     </div>
   );
 }
+
+AddShopForm.propTypes = {
+  onAdd: PropTypes.func,
+};
 
 export default AddShopForm;

@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
+import PropTypes from 'prop-types';
 
 const AuthContext = createContext({
   user: {},
@@ -27,12 +28,10 @@ function AuthProvider({ children }) {
     msg: "",
     type: "",
   });
-console.log('user ===', user);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
-        console.log("prisijungimas", user.email);
         setUser(user);
         localStorage.setItem(localTokenKey, user.accessToken)
         setFeedback({
@@ -41,7 +40,6 @@ console.log('user ===', user);
           type: "success",
         });
       } else {
-        console.log("Logout User");
         setUser(null);
         localStorage.removeItem(localTokenKey)
       }
@@ -94,6 +92,10 @@ console.log('user ===', user);
     <AuthContext.Provider value={authCtx}>{children}</AuthContext.Provider>
   );
 }
+
+AuthContext.propTypes = {
+  children: PropTypes.any,
+};
 
 export default AuthProvider;
 

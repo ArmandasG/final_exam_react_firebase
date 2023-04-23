@@ -7,7 +7,6 @@ import "./addRegisterShopPage.scss";
 import { useAuthCtx } from "../store/AuthProvider";
 
 function RegisterPage() {
-  const navigate = useNavigate();
   const {setIsLoading, ui} = useAuthCtx()
   function registerToShop({ email, password }) {
     ui.showLoading()

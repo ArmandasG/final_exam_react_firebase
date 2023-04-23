@@ -11,8 +11,6 @@ import { useAuthCtx } from "../store/AuthProvider";
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  console.log("searchParams ===", searchParams.get("redirected"));
 
   const { setIsLoading, isLoading, ui } = useAuthCtx();
   function loginShop({ email, password }) {
@@ -47,7 +45,6 @@ function LoginPage() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.warn("errorMessage ===", errorMessage);
         const email = error.customData.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
         ui.showError("Something went wrong");

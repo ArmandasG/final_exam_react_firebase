@@ -30,18 +30,17 @@ function ShopsPage() {
     }
     getShops();
   }, []);
-  console.log('isLoading ===', isLoading);
   return (
     <section className="shops">
       <h1>Available shops</h1>
-{isLoading && <div>Loading...</div>}
+{isLoading && <div className="isLoadingShop"> <p>Loading...</p> </div>}
         {shopsArr.length !== 0 && !isLoading && (<ul className="shopItems"> {shopsArr.map((sObj) => (<SingleShop key={sObj.uid} shops={sObj} />))} </ul>)
           }
       
       {shopsArr.length === 0 && !isLoading && (
-        <div>
+        <div className="noShops">
           <h2>There are no available shops</h2>
-          <Link to={"/shops/new"}>Try adding one</Link>
+          <Link className="tryAdding" to={"/shops/new"}>Try adding one</Link>
         </div>
       )}
     </section>

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function Logout() {
   const { ui, setIsLoading } = useAuthCtx()
-  const { isLoggedIn, logout } = useAuthCtx();
+  const { isLoggedIn } = useAuthCtx();
   const navigate = useNavigate();
   function logoutShop() {
     ui.showLoading()

@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import "./loginAndRegisterForm.scss";
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 
 function LoginForm({ onLogin }) {
   const formik = useFormik({
@@ -14,7 +15,6 @@ function LoginForm({ onLogin }) {
       password: Yup.string().min(6, 'At least 6 simbols are required').required(),
           }),
     onSubmit: (values) => {
-      console.log("values ===", values);
       onLogin(values);
     },
   });
@@ -56,5 +56,9 @@ function LoginForm({ onLogin }) {
     </div>
   );
 }
+
+LoginForm.propTypes = {
+  onLogin: PropTypes.func,
+};
 
 export default LoginForm;
