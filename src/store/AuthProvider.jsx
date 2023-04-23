@@ -48,6 +48,37 @@ console.log('user ===', user);
     });
   }, []);
 
+  const ui = {
+    showSuccess(msg = '') {
+      setFeedback({
+        show: true,
+        msg: msg || 'Success',
+        type: 'success',
+      })
+    },
+    showError(msg = '') {
+      setFeedback({
+        show: true,
+        msg: msg || 'Klaida',
+        type: 'error',
+      })
+    },
+    showLoading(msg = '') {
+      setFeedback({
+        show: true,
+        msg: msg || 'Loading...',
+        type: 'info',
+      })
+    },
+    closeAlert() {
+      setFeedback({
+        show: false,
+        msg: '',
+        type: '',
+      })
+    }
+  }
+
   const isLoggedIn = !!user
 
   const authCtx = {
@@ -55,6 +86,8 @@ console.log('user ===', user);
     isLoading,
     setIsLoading,
     isLoggedIn,
+    feedback,
+    ui
   };
 
   return (

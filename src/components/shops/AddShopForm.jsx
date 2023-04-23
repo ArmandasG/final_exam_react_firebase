@@ -6,11 +6,11 @@ import * as Yup from "yup";
 function AddShopForm({ onAdd }) {
   const formik = useFormik({
     initialValues: {
-      shopName: "Vinted",
-      town: "Vilnius",
-      startYear: "2010",
-      description: "a shop that is worth it",
-      ImageUrl: "https://meetfrank.com/blog/wp-content/uploads/2019/10/01e0aea7-8df6-4a1e-894e-08e6d3a69368-1539684203682-1080x512.png",
+      shopName: "",
+      town: "",
+      startYear: "",
+      description: "",
+      ImageUrl: "",
     },
     validationSchema: Yup.object({
       shopName: Yup.string()

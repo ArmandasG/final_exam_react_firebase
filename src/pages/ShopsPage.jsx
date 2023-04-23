@@ -4,8 +4,10 @@ import { db } from "../firebase/firebase";
 import SingleShop from "../components/shops/SingleShop";
 import { Link } from "react-router-dom";
 import './shopsPage.scss'
+import { useAuthCtx } from "../store/AuthProvider";
 
 function ShopsPage() {
+  const {ui} = useAuthCtx()
   const [shopsArr, setShopsArr] = useState([]);
 
   useEffect(() => {
@@ -22,6 +24,7 @@ function ShopsPage() {
         setShopsArr(tempShops);
       } catch (error) {
         console.warn("getShops error", error.message);
+        ui.showError('Only available for registered users')
       }
     }
     getShops();

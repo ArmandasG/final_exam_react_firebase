@@ -9,18 +9,20 @@ function LoginPage() {
   const navigate = useNavigate();
   const {setIsLoading, ui} = useAuthCtx()
   function loginShop({ email, password }) {
+    ui.showLoading()
     setIsLoading(true)
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        
         setIsLoading(false)
         navigate("/shops");
+        ui.showSuccess('Logged in')
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log("errorMessage ===", errorMessage);
+        ui.showError('Incorrect email or password')
         setIsLoading(false)
       });
   }

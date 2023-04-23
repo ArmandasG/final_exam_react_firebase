@@ -3,23 +3,27 @@ import { Link, useNavigate } from "react-router-dom";
 import RegisterForm from "../components/auth/RegisterForm";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
-import "./loginAndRegister.scss";
+import "./addRegisterShopPage.scss";
+import { useAuthCtx } from "../store/AuthProvider";
 
 function RegisterPage() {
   const navigate = useNavigate();
+  const {setIsLoading, ui} = useAuthCtx()
   function registerToShop({ email, password }) {
+    ui.showLoading()
+    setIsLoading(true)
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
+        setIsLoading(false)
         const user = userCredential.user;
-        // ...
-        navigate("/shops");
+        ui.showSuccess('User has been successfully registered')
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log("errorMessage ===", errorMessage);
-        // ..
+        ui.showError('Registration failed')
+        setIsLoading(false)
       });
   }
   return (

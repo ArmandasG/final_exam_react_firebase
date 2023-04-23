@@ -3,7 +3,7 @@ import AddShopForm from '../components/shops/addShopForm'
 import { Link, useNavigate } from 'react-router-dom'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../firebase/firebase'
-import "./loginAndRegister.scss";
+import "./addRegisterShopPage.scss";
 
 function AddShopPage() {
   const navigate = useNavigate()

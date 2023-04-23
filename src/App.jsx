@@ -10,6 +10,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import NotFound from "./pages/NotFound";
 import { useAuthCtx } from "./store/AuthProvider";
+import Feedback from "./components/feedback/Feedback";
 
 function App() {
   const { isLoggedIn } = useAuthCtx()
@@ -17,6 +18,7 @@ function App() {
     <div className="">
       <div className="container">
         <Header />
+        <Feedback />
         <Routes>
           <Route path="/" element={isLoggedIn ? <Navigate to={'/shops'} /> : <LoginPage />} />
           <Route path="/login" element={isLoggedIn ?  <Navigate to={'/shops'} /> : <LoginPage />} />
