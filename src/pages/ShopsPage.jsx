@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase/firebase";
 import SingleShop from "../components/shops/SingleShop";
 import { Link } from "react-router-dom";
+import './shopsPage.scss'
 
 function ShopsPage() {
   const [shopsArr, setShopsArr] = useState([]);
@@ -12,32 +13,33 @@ function ShopsPage() {
       try {
         const querySnapshot = await getDocs(collection(db, "shops"));
         const tempShops = [];
-      querySnapshot.forEach((doc) => {
-        tempShops.push({
-          uid: doc.id,
-          ...doc.data()
-        })
-      });
-      setShopsArr(tempShops)
+        querySnapshot.forEach((doc) => {
+          tempShops.push({
+            uid: doc.id,
+            ...doc.data(),
+          });
+        });
+        setShopsArr(tempShops);
       } catch (error) {
-        console.warn('getShops error', error.message)
+        console.warn("getShops error", error.message);
       }
-      
     }
     getShops();
   }, []);
-  return <section>
-    {shopsArr !== [] && shopsArr.map((sObj) => (
-      <ul>
-      <SingleShop key={sObj.uid} shops={sObj} />
-      </ul>
-    ))}
-    {shopsArr === [] && 
-    <div>
-      <h2>There are no available shops</h2>
-      <Link to={'/shops/new'}>Try adding one</Link>
-    </div> }
-  </section>;
+  return (
+    <section className="shops">
+      <h1>Available shops</h1>
+        {shopsArr.length !== 0 && (<ul className="shopItems"> {shopsArr.map((sObj) => (<SingleShop key={sObj.uid} shops={sObj} />))} </ul>)
+          }
+      
+      {shopsArr.length === 0 && (
+        <div>
+          <h2>There are no available shops</h2>
+          <Link to={"/shops/new"}>Try adding one</Link>
+        </div>
+      )}
+    </section>
+  );
 }
 
 export default ShopsPage;

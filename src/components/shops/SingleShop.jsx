@@ -1,8 +1,9 @@
 import React from 'react'
+import './singleshop.scss'
 
 function SingleShop({ shops }) {
   return (
-    <li>
+    <li className='singleShopItem'>
         <div>
             <img src={shops.ImageUrl} alt={shops.shopName} />
         </div>
