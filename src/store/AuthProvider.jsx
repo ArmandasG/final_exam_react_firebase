@@ -93,8 +93,8 @@ function AuthProvider({ children }) {
   );
 }
 
-AuthContext.propTypes = {
-  children: PropTypes.any,
+AuthProvider.propTypes = {
+  children: PropTypes.object,
 };
 
 export default AuthProvider;

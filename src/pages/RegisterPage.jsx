@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import RegisterForm from "../components/auth/RegisterForm";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
@@ -14,12 +14,9 @@ function RegisterPage() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setIsLoading(false)
-        const user = userCredential.user;
         ui.showSuccess('User has been successfully registered')
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
         ui.showError('Registration failed')
         setIsLoading(false)
       });
