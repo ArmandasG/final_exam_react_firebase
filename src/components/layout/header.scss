@@ -10,6 +10,10 @@ header {
   .emailUser {
     display: none;
   }
+
+  .emailUserW{
+    margin-bottom: 1rem;
+  }
   .logo {
     padding-left: 2.5rem;
     display: flex;
@@ -54,15 +58,17 @@ header {
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     align-items: center;
+  }
+  .navItem {
+    overflow: hidden;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .emailUserW{
     display: none;
   }
@@ -73,6 +79,7 @@ header {
   .headertop {
     margin-top: 0;
     margin-left: 0;
+    border-radius: 0;
   }
   header {
     .emailUser {
