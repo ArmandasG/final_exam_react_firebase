@@ -1,8 +1,8 @@
 import { useFormik } from "formik";
 import React from "react";
 import "./loginAndRegisterForm.scss";
-import * as Yup from 'yup';
-import PropTypes from 'prop-types';
+import * as Yup from "yup";
+import PropTypes from "prop-types";
 
 function RegisterForm({ onRegister }) {
   const formik = useFormik({
@@ -11,8 +11,12 @@ function RegisterForm({ onRegister }) {
       password: "",
     },
     validationSchema: Yup.object({
-email: Yup.string().email('Has to be an email example: email@email.com').required(),
-password: Yup.string().min(6, 'At least 6 simbols are required').required(),
+      email: Yup.string()
+        .email("Has to be an email example: email@email.com")
+        .required(),
+      password: Yup.string()
+        .min(6, "At least 6 simbols are required")
+        .required(),
     }),
     onSubmit: (values) => {
       onRegister(values);
@@ -22,9 +26,8 @@ password: Yup.string().min(6, 'At least 6 simbols are required').required(),
     <div className="formEl">
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label className="">Email</label>
+          <label htmlFor="email">Email</label>
           <input
-            className=""
             id="email"
             type="text"
             name="email"
@@ -34,12 +37,13 @@ password: Yup.string().min(6, 'At least 6 simbols are required').required(),
           />
           {formik.touched.email && formik.errors.email ? (
             <div className="err">{formik.errors.email}</div>
-          ) : <div className="noErr"></div>}
+          ) : (
+            <div className="noErr"></div>
+          )}
         </div>
         <div>
-          <label className="">Password</label>
+          <label htmlFor="password">Password</label>
           <input
-            className=""
             id="password"
             type="password"
             name="password"
@@ -49,7 +53,9 @@ password: Yup.string().min(6, 'At least 6 simbols are required').required(),
           />
           {formik.touched.password && formik.errors.password ? (
             <div className="err">{formik.errors.password}</div>
-          ) : <div className="noErr"></div>}
+          ) : (
+            <div className="noErr"></div>
+          )}
         </div>
         <button className="btn" type="submit">
           Register

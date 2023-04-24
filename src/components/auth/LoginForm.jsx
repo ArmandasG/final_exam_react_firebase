@@ -19,10 +19,10 @@ function LoginForm({ onLogin }) {
     },
   });
   return (
-    <div className="">
+    <div>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label className="">Email</label>
+          <label htmlFor='email'>Email</label>
           <input
             id="email"
             type="text"
@@ -36,7 +36,7 @@ function LoginForm({ onLogin }) {
           ) : <div className="noErr"></div>}
         </div>
         <div>
-          <label className="">Password</label>
+          <label htmlFor='password'>Password</label>
           <input
             id="password"
             type="password"

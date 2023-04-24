@@ -43,10 +43,10 @@ function AddShopForm({ onAdd }) {
     },
   });
   return (
-    <div className="">
+    <div>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label className="">Shop Name</label>
+          <label htmlFor='shopName'>Shop Name</label>
           <input
             id="shopName"
             type="text"
@@ -62,7 +62,7 @@ function AddShopForm({ onAdd }) {
           )}
         </div>
         <div>
-          <label className="">Town</label>
+          <label htmlFor='town'>Town</label>
           <input
             id="town"
             type="text"
@@ -78,7 +78,7 @@ function AddShopForm({ onAdd }) {
           )}
         </div>
         <div>
-          <label className="">Start Year</label>
+          <label htmlFor='startYear'>Start Year</label>
           <input
             id="startYear"
             type="number"
@@ -94,7 +94,7 @@ function AddShopForm({ onAdd }) {
           )}
         </div>
         <div>
-          <label className="">Description</label>
+          <label htmlFor='description'>Description</label>
           <textarea
             id="description"
             type="textarea"
@@ -110,7 +110,7 @@ function AddShopForm({ onAdd }) {
           )}
         </div>
         <div>
-          <label className="">Image Url</label>
+          <label htmlFor='ImageUrl'>Image Url</label>
           <input
             id="ImageUrl"
             type="text"
