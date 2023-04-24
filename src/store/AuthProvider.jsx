@@ -36,13 +36,26 @@ function AuthProvider({ children }) {
           type: "success",
         });
       } else if (!!user){
-        
+
       }
       else {
         setUser(null);
       }
     });
   }, []);
+
+  const {show, msg} = feedback
+  useEffect(() => {
+    if (show === true && msg !=='Loading') {
+      setTimeout(() => {
+        setFeedback({
+          show: false,
+          msg: '',
+          type: '',
+        })
+      }, 2500)
+    }
+  }, [show, msg])
 
   const ui = {
     showSuccess(msg = '') {
