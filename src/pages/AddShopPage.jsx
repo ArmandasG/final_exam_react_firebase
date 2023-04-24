@@ -1,10 +1,10 @@
 import React from 'react'
-import AddShopForm from '../components/shops/addShopForm'
 import { Link, useNavigate } from 'react-router-dom'
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../firebase/firebase'
 import "./addRegisterShopPage.scss";
 import { useAuthCtx } from '../store/AuthProvider'
+import AddShopForm from '../components/shops/AddShopForm';
 
 function AddShopPage() {
   const navigate = useNavigate()
