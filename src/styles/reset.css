@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    /* 1 rem = 10px */
+    font-size: 62.5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  p,
+  li,
+  a {
+    font-size: 1.6rem;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+
+  ul, li {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #E5E5E5;
+    color: #22215B;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* common rules */
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    /* apridboti tik maximalu ploti */
+    max-width: 140rem;
+    /* skaiciuoti parastes automatiskai vienodai is kaires ir is desines */
+    margin: 6.3rem auto;
+    border: 3px solid #FFFFFF;
+    border-radius: 5rem;
+    background-color: #FFFFFF;
+  }
+  
+  /* utility classes */
+  
+  .flex {
+    display: flex;
+  }
+  
+  .between {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tac {
+    text-align: center;
+  }
+  
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    padding: 0.6em 0.8em;
+    border-radius: 8px;
+    border: 1px solid #777;
+    display: block;
+    /* max-width: 300px; */
+  }
+  textarea {
+    min-height: 5rem;
+    min-width: 500px;
+    resize: vertical;
+  }
+  
+  button {
+    font-size: 1.8rem;
+    color: #22215B;
+    background-color: #FFFFFF;
+    line-height: 2.2rem;
+    padding: 2.4rem 6.3rem;
+    border-radius: 1.6rem;
+    border: 1px solid #22215B;
+    cursor: pointer;
+    transition: 0.4s;
+    /* margin: auto; */
+  }
+  
+  .unlisted {
+    list-style: none;
+    padding-left: 0;
+  }

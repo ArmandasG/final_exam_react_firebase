@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./styles/reset.css";
+import "./styles/App.css";
+import { Navigate, Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import ShopsPage from "./pages/ShopsPage";
+import AddShopPage from "./pages/AddShopPage";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import NotFound from "./pages/NotFound";
+import { useAuthCtx } from "./store/AuthProvider";
+import Feedback from "./components/feedback/Feedback";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { isLoggedIn } = useAuthCtx();
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="">
+      <div className="container">
+        <Header />
+        <Feedback />
+        <Routes>
+          <Route
+            path="/"
+            element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />}
+          />
+          <Route
+            path="/login"
+            element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />}
+          />
+          <Route
+            path="/register"
+            element={isLoggedIn ? <Navigate to={"/shops"} /> : <RegisterPage />}
+          />
+          <Route
+            path="/shops"
+            element={isLoggedIn ? <ShopsPage /> : <Navigate to={"/login"} />}
+          />
+          <Route
+            path="/shops/new"
+            element={isLoggedIn ? <AddShopPage /> : <Navigate to={"/login"} />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
-      <h1>Final exam react firebase</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
