@@ -60,26 +60,6 @@ function AuthProvider({ children }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // switch(true) {
-  //   case !!user:
-  //     setUser(user);
-  //     setFeedback({
-  //       show: true,
-  //       msg: 'You are already logged in',
-  //       type: 'info',
-  //     });
-  //     break;
-  //       case !user && (location.pathname==='/shops' || location.pathname==='/shops/new'):
-  //         setFeedback({
-  //           show: true,
-  //           msg: 'Access restricted',
-  //           type: 'error',
-  //         });
-  //         break;
-  //         default:
-  //       setUser(null);
-  //       break;
-
   const {show, msg} = feedback
   useEffect(() => {
     if (show === true && msg !=='Loading') {
