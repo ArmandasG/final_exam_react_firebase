@@ -30,7 +30,7 @@ function AuthProvider({ children }) {
   const location = useLocation();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user && location.pathname === "/shops") {
+      if (!!user && location.pathname === "/shops") {
         setUser(user);
         setFeedback({
           show: true,
@@ -38,8 +38,10 @@ function AuthProvider({ children }) {
           type: "success",
         });
       } else if (
-        user &&
-        (location.pathname === "/login" || location.pathname === "/register")
+        !!user &&
+        (location.pathname === "/login" ||
+          location.pathname === "/register" ||
+          location.pathname === "/")
       ) {
         setUser(user);
         setFeedback({
@@ -47,8 +49,11 @@ function AuthProvider({ children }) {
           msg: "You are already logged in",
           type: "info",
         });
-      } else if (!user && location.pathname === "/shops") {
-        setUser(user);
+      } else if (
+        (!user && location.pathname === "/shops") ||
+        (!user && location.pathname === "/shops/new")
+      ) {
+        setUser(null);
         setFeedback({
           show: true,
           msg: "Unauthorized access",

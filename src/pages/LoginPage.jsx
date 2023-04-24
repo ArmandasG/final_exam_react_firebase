@@ -19,7 +19,9 @@ function LoginPage() {
         ui.showSuccess("Logged in");
       })
       .catch((error) => {
-        ui.showError("Incorrect email or password");
+        const errMsg = error.message;
+        ui.showError(errMsg === 'auth._getRecaptchaConfig is not a function' ? 
+        'Server error' : 'Incorrect email or password')
         setIsLoading(false);
       });
   }

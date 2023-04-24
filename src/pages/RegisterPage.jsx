@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RegisterForm from "../components/auth/RegisterForm";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
@@ -7,6 +7,7 @@ import "./addRegisterShopPage.scss";
 import { useAuthCtx } from "../store/AuthProvider";
 
 function RegisterPage() {
+  const navigate = useNavigate()
   const { setIsLoading, ui } = useAuthCtx();
   function registerToShop({ email, password }) {
     ui.showLoading();
@@ -15,6 +16,7 @@ function RegisterPage() {
       .then((userCredential) => {
         setIsLoading(false);
         ui.showSuccess("User has been successfully registered");
+        navigate('/shops')
       })
       .catch((error) => {
         ui.showError("Registration failed");

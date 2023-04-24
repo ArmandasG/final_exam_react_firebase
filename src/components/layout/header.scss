@@ -38,6 +38,7 @@ header {
     border-radius: 1rem;
     transition: 0.4s;
     margin-right: 1rem;
+    min-width: fit-content
   }
   .navItem.active {
     background-color: #ff6262;
@@ -58,12 +59,14 @@ header {
 }
 
 @media screen and (max-width: 1200px) {
-  nav {
-    display: flex;
-    align-items: center;
-  }
-  .navItem {
-    overflow: hidden;
+  header {
+    .top {
+      max-width: 40%;
+      p {
+        font-size: 3rem;
+        letter-spacing: 0rem;
+      }
+    }
   }
 }
 
@@ -83,27 +86,30 @@ header {
   header {
     .emailUser {
       display: block;
+      font-weight: bold;
+      font-size: 1.5rem;
     }
     .top {
+      max-width: none;
       margin-top: 2rem;
       margin-bottom: 4rem;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       p {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
       }
     }
     .container {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
+      display: flex;
+      flex-direction: column;
     }
     .logo {
       padding-left: 0;
       gap: 0;
       p {
         letter-spacing: 0.5rem;
-        font-size: 3rem;
+        font-size: 2rem;
       }
     }
     nav {
