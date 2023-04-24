@@ -12,6 +12,7 @@
         text-align: center;
         font-size: 4rem;
         color: #FFFFFF;
+        margin-bottom: 2rem;
     };
     .additional{
         text-align: center;
@@ -59,4 +60,18 @@ margin-top: 3rem;
         max-height: 3rem;
         padding-top: 0.1rem;
     }
+}
+
+@media screen and (max-width: 768px) {
+    .innerFormEl {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 4rem;
+    }
+
+    .btnGoogle{
+        font-size: 2rem;
+        max-height: 12rem;
+    }
+
 }

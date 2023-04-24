@@ -29,6 +29,7 @@ function ShopsPage() {
       }
     }
     getShops();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <section className="shops">

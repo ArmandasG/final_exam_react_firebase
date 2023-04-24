@@ -45,3 +45,9 @@
       opacity: 0.8;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .close-button {
+      right: -5.5rem;
+    }
+    }

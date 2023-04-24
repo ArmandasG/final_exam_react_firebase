@@ -16,8 +16,6 @@ const AuthContext = createContext({
   ui: {},
 });
 
-const localTokenKey = 'LOCAL_TOKEN'
-
 AuthContext.displayName = "Authentification";
 
 function AuthProvider({ children }) {
@@ -31,17 +29,17 @@ function AuthProvider({ children }) {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
         setUser(user);
-        localStorage.setItem(localTokenKey, user.accessToken)
         setFeedback({
           show: true,
           msg: "User logged in",
           type: "success",
         });
-      } else {
+      } else if (!!user){
+        
+      }
+      else {
         setUser(null);
-        localStorage.removeItem(localTokenKey)
       }
     });
   }, []);

@@ -13,6 +13,7 @@
         font-size: 4rem;
         color: #FFFFFF;
         padding-top: 10rem;
+        margin-bottom: 2rem;
     }
 }
 
@@ -60,3 +61,30 @@ margin-top: 5rem;
 .noShops .tryAdding:hover {
     color: #FF6262
 }
+
+@media screen and (max-width: 1000px) { 
+    .shopItems {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 4rem;
+        text-align: center;
+        p {
+            padding-left: 0;
+        }
+    }
+ }
+@media screen and (max-width: 768px) {
+    .shops{
+        h1 {
+            padding: 2rem;
+        }
+    }
+    .shopItems {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 4rem;
+        text-align: center;
+        p {
+            padding-left: 0;
+        }
+    }}
