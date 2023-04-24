@@ -42,7 +42,7 @@ function LoginPage() {
       <h1>Sign in</h1>
       <LoginForm onLogin={loginShop} />
       <button onClick={loginWithGoogle} className="btn btnGoogle">
-        <img src="/public/google.png" alt="googleIcon" /> Login with Google{" "}
+        <img src="/google.png" alt="googleIcon" /> Login with Google{" "}
       </button>
       <div className="additional">
         <p>Not yet registered ?</p>

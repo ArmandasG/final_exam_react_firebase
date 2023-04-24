@@ -2,6 +2,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
 import PropTypes from 'prop-types';
+import { useLocation } from "react-router-dom";
 
 const AuthContext = createContext({
   user: {},
@@ -26,23 +27,58 @@ function AuthProvider({ children }) {
     msg: "",
     type: "",
   });
+  const location = useLocation()
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user) {
+      if (user && location.pathname==='/shops') {
         setUser(user);
         setFeedback({
           show: true,
           msg: "User logged in",
           type: "success",
         });
-      } else if (!!user){
-
+      } else if (user && (location.pathname==='/login' || location.pathname==='/register')){
+        setUser(user)
+        setFeedback({
+          show: true,
+          msg: 'You are already logged in',
+          type: 'info',   
+        });
+      }
+      else if (!user && location.pathname==='/shops'){
+        setUser(user)
+        setFeedback({
+          show: true,
+          msg: 'Unauthorized access',
+          type: 'error',   
+        });
       }
       else {
         setUser(null);
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // switch(true) {
+  //   case !!user:
+  //     setUser(user);
+  //     setFeedback({
+  //       show: true,
+  //       msg: 'You are already logged in',
+  //       type: 'info',
+  //     });
+  //     break;
+  //       case !user && (location.pathname==='/shops' || location.pathname==='/shops/new'):
+  //         setFeedback({
+  //           show: true,
+  //           msg: 'Access restricted',
+  //           type: 'error',
+  //         });
+  //         break;
+  //         default:
+  //       setUser(null);
+  //       break;
 
   const {show, msg} = feedback
   useEffect(() => {
