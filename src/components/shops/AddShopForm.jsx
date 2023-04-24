@@ -3,15 +3,14 @@ import React from "react";
 import "./addShopForm.scss";
 import * as Yup from "yup";
 import { useAuthCtx } from "../../store/AuthProvider";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 function AddShopForm({ onAdd }) {
-  const {isLoading} = useAuthCtx()
-  let disabled = '';
+  const { isLoading } = useAuthCtx();
+  let disabled = "";
 
   if (isLoading) {
-    disabled = 'disabled'
+    disabled = "disabled";
   }
 
   const formik = useFormik({
@@ -46,7 +45,7 @@ function AddShopForm({ onAdd }) {
     <div>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor='shopName'>Shop Name</label>
+          <label htmlFor="shopName">Shop Name</label>
           <input
             id="shopName"
             type="text"
@@ -62,7 +61,7 @@ function AddShopForm({ onAdd }) {
           )}
         </div>
         <div>
-          <label htmlFor='town'>Town</label>
+          <label htmlFor="town">Town</label>
           <input
             id="town"
             type="text"
@@ -78,7 +77,7 @@ function AddShopForm({ onAdd }) {
           )}
         </div>
         <div>
-          <label htmlFor='startYear'>Start Year</label>
+          <label htmlFor="startYear">Start Year</label>
           <input
             id="startYear"
             type="number"
@@ -94,7 +93,7 @@ function AddShopForm({ onAdd }) {
           )}
         </div>
         <div>
-          <label htmlFor='description'>Description</label>
+          <label htmlFor="description">Description</label>
           <textarea
             id="description"
             type="textarea"
@@ -110,7 +109,7 @@ function AddShopForm({ onAdd }) {
           )}
         </div>
         <div>
-          <label htmlFor='ImageUrl'>Image Url</label>
+          <label htmlFor="ImageUrl">Image Url</label>
           <input
             id="ImageUrl"
             type="text"
@@ -125,7 +124,11 @@ function AddShopForm({ onAdd }) {
             <div className="noErr"></div>
           )}
         </div>
-        <button disabled={isLoading} className={`${disabled} btn`} type="submit">
+        <button
+          disabled={isLoading}
+          className={`${disabled} btn`}
+          type="submit"
+        >
           Add
         </button>
       </form>

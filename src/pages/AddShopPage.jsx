@@ -1,26 +1,26 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { addDoc, collection } from 'firebase/firestore'
-import { db } from '../firebase/firebase'
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../firebase/firebase";
 import "./addRegisterShopPage.scss";
-import { useAuthCtx } from '../store/AuthProvider'
-import AddShopForm from '../components/shops/AddShopForm';
+import { useAuthCtx } from "../store/AuthProvider";
+import AddShopForm from "../components/shops/AddShopForm";
 
 function AddShopPage() {
-  const navigate = useNavigate()
-  const {setIsLoading, ui} = useAuthCtx()
+  const navigate = useNavigate();
+  const { setIsLoading, ui } = useAuthCtx();
   async function addShop(newShopObj) {
-    ui.showLoading()
-    setIsLoading(true)
+    ui.showLoading();
+    setIsLoading(true);
     try {
-      await addDoc(collection(db, 'shops'), newShopObj)
-      setIsLoading(false)
-      ui.showSuccess('A shop has been successfully added')
-    navigate('/shops')
+      await addDoc(collection(db, "shops"), newShopObj);
+      setIsLoading(false);
+      ui.showSuccess("A shop has been successfully added");
+      navigate("/shops");
     } catch (error) {
       console.warn(error);
-      ui.showError('Shop has not been added')
-      setIsLoading(false)
+      ui.showError("Shop has not been added");
+      setIsLoading(false);
     }
   }
   return (
@@ -35,7 +35,7 @@ function AddShopPage() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default AddShopPage
+export default AddShopPage;

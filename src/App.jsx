@@ -12,18 +12,33 @@ import { useAuthCtx } from "./store/AuthProvider";
 import Feedback from "./components/feedback/Feedback";
 
 function App() {
-  const { isLoggedIn } = useAuthCtx()
+  const { isLoggedIn } = useAuthCtx();
   return (
     <div className="">
       <div className="container">
         <Header />
         <Feedback />
         <Routes>
-          <Route path="/" element={isLoggedIn ? <Navigate to={'/shops'} /> : <LoginPage />} />
-          <Route path="/login" element={isLoggedIn ?  <Navigate to={'/shops'} /> : <LoginPage />} />
-          <Route path="/register" element={isLoggedIn ? <Navigate to={'/shops'} /> : <RegisterPage />} />
-          <Route path="/shops" element={isLoggedIn ? <ShopsPage /> : <Navigate to={'/login'} />} />
-          <Route path="/shops/new" element={isLoggedIn ? <AddShopPage /> : <Navigate to={'/login'} />} />
+          <Route
+            path="/"
+            element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />}
+          />
+          <Route
+            path="/login"
+            element={isLoggedIn ? <Navigate to={"/shops"} /> : <LoginPage />}
+          />
+          <Route
+            path="/register"
+            element={isLoggedIn ? <Navigate to={"/shops"} /> : <RegisterPage />}
+          />
+          <Route
+            path="/shops"
+            element={isLoggedIn ? <ShopsPage /> : <Navigate to={"/login"} />}
+          />
+          <Route
+            path="/shops/new"
+            element={isLoggedIn ? <AddShopPage /> : <Navigate to={"/login"} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

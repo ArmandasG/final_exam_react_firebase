@@ -11,7 +11,7 @@ header {
     display: none;
   }
 
-  .emailUserW{
+  .emailUserW {
     margin-bottom: 1rem;
   }
   .logo {
@@ -68,7 +68,7 @@ header {
 }
 
 @media screen and (max-width: 800px) {
-  .emailUserW{
+  .emailUserW {
     display: none;
   }
   .container {
@@ -90,14 +90,13 @@ header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-       p{
+      p {
         font-size: 2.5rem;
-       }
+      }
     }
     .container {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-
     }
     .logo {
       padding-left: 0;
@@ -113,4 +112,3 @@ header {
     }
   }
 }
-

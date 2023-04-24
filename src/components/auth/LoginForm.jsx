@@ -1,8 +1,8 @@
 import { useFormik } from "formik";
 import React from "react";
 import "./loginAndRegisterForm.scss";
-import * as Yup from 'yup';
-import PropTypes from 'prop-types';
+import * as Yup from "yup";
+import PropTypes from "prop-types";
 
 function LoginForm({ onLogin }) {
   const formik = useFormik({
@@ -11,9 +11,11 @@ function LoginForm({ onLogin }) {
       password: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('Has to be an email').required(),
-      password: Yup.string().min(6, 'At least 6 simbols are required').required(),
-          }),
+      email: Yup.string().email("Has to be an email").required(),
+      password: Yup.string()
+        .min(6, "At least 6 simbols are required")
+        .required(),
+    }),
     onSubmit: (values) => {
       onLogin(values);
     },
@@ -22,7 +24,7 @@ function LoginForm({ onLogin }) {
     <div>
       <form onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor="email">Email</label>
           <input
             id="email"
             type="text"
@@ -33,10 +35,12 @@ function LoginForm({ onLogin }) {
           />
           {formik.touched.email && formik.errors.email ? (
             <div className="err">{formik.errors.email}</div>
-          ) : <div className="noErr"></div>}
+          ) : (
+            <div className="noErr"></div>
+          )}
         </div>
         <div>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor="password">Password</label>
           <input
             id="password"
             type="password"
@@ -47,7 +51,9 @@ function LoginForm({ onLogin }) {
           />
           {formik.touched.password && formik.errors.password ? (
             <div className="err">{formik.errors.password}</div>
-          ) : <div className="noErr"></div>}
+          ) : (
+            <div className="noErr"></div>
+          )}
         </div>
         <button className="btn" type="submit">
           Login

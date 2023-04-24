@@ -1,90 +1,90 @@
 .shops {
-    min-height: 70rem;
-    max-width: 130rem;
-    margin-top: 10rem;
-    margin-bottom: 10rem;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 3rem;
-    background: linear-gradient(to top, #4481eb 0%, #04befe 100%);
-    min-height: 85vh;
-    h1 {
-        text-align: center;
-        font-size: 4rem;
-        color: #FFFFFF;
-        padding-top: 10rem;
-        margin-bottom: 2rem;
-    }
+  min-height: 70rem;
+  max-width: 130rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3rem;
+  background: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+  min-height: 85vh;
+  h1 {
+    text-align: center;
+    font-size: 4rem;
+    color: #ffffff;
+    padding-top: 10rem;
+    margin-bottom: 2rem;
+  }
 }
 
-.isLoadingShop{
-    text-align: center;
-margin-top: 5rem;
-p{
+.isLoadingShop {
+  text-align: center;
+  margin-top: 5rem;
+  p {
     font-size: 5rem;
     color: white;
-}
+  }
 }
 
 .shopItems {
-    padding: 7rem;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-    img {
-        border-top-left-radius: 2rem;
-        border-top-right-radius: 2rem;
-        display: block;
-        min-height: 18rem;
-  max-width:fit-content;
-  width: 100%;
-  height: 100%;
-  object-fit:initial ;
-    }
-    
+  padding: 7rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  img {
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    display: block;
+    min-height: 18rem;
+    max-width: fit-content;
+    width: 100%;
+    height: 100%;
+    object-fit: initial;
+  }
 }
 
-.noShops{
-margin-top: 5rem;
-    text-align: center;
-    font-size: 3rem;
-    color: white;
+.noShops {
+  margin-top: 5rem;
+  text-align: center;
+  font-size: 3rem;
+  color: white;
 }
 
 .noShops .tryAdding {
-    display: block;
-    padding-top: 1rem;
-    font-size: 1.5rem;
+  display: block;
+  padding-top: 1rem;
+  font-size: 1.5rem;
 }
 
 .noShops .tryAdding:hover {
-    color: #FF6262
+  color: #ff6262;
 }
 
-@media screen and (max-width: 1000px) { 
-    .shopItems {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        padding: 4rem;
-        text-align: center;
-        p {
-            padding-left: 0;
-        }
+@media screen and (max-width: 1000px) {
+  .shopItems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 4rem;
+    text-align: center;
+    p {
+      padding-left: 0;
     }
- }
+  }
+}
 @media screen and (max-width: 768px) {
-    .shops{
-        h1 {
-            padding: 2rem;
-        }
+  .shops {
+    h1 {
+      padding: 2rem;
     }
-    .shopItems {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        padding: 4rem;
-        text-align: center;
-        p {
-            padding-left: 0;
-        }
-    }}
+  }
+  .shopItems {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 4rem;
+    text-align: center;
+    p {
+      padding-left: 0;
+    }
+  }
+}

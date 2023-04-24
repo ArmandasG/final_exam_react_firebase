@@ -7,18 +7,18 @@ import "./addRegisterShopPage.scss";
 import { useAuthCtx } from "../store/AuthProvider";
 
 function RegisterPage() {
-  const {setIsLoading, ui} = useAuthCtx()
+  const { setIsLoading, ui } = useAuthCtx();
   function registerToShop({ email, password }) {
-    ui.showLoading()
-    setIsLoading(true)
+    ui.showLoading();
+    setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setIsLoading(false)
-        ui.showSuccess('User has been successfully registered')
+        setIsLoading(false);
+        ui.showSuccess("User has been successfully registered");
       })
       .catch((error) => {
-        ui.showError('Registration failed')
-        setIsLoading(false)
+        ui.showError("Registration failed");
+        setIsLoading(false);
       });
   }
   return (

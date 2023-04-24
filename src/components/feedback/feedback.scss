@@ -1,49 +1,49 @@
 .feedback-container {
-    position: relative;
-    padding: 2rem;
-    color: white;
-    text-align: center;
-    z-index: 10;
-    width: 50%;
-    border-radius: 1rem;
-    transform: translate(50%);
+  position: relative;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  z-index: 10;
+  width: 50%;
+  border-radius: 1rem;
+  transform: translate(50%);
   transition: transform ease-in 0.3s;
-  
-    .msg {
-      font-size: 2rem;
-    }
-  
-    &.success {
-      background-color: #4CE364;
-    }
-  
-    &.error {
-      background-color: #FF5A5A;
-    }
-  
-    &.info {
-      background-color: #FFC700;
-    }
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 50%;
-    right: -2rem;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 4rem;
-    cursor: pointer;
-  
-    &:hover {
-      opacity: 0.8;
-    }
+
+  .msg {
+    font-size: 2rem;
   }
 
-  @media screen and (max-width: 768px) {
-    .close-button {
-      right: -5.5rem;
-    }
-    }
+  &.success {
+    background-color: #4ce364;
+  }
+
+  &.error {
+    background-color: #ff5a5a;
+  }
+
+  &.info {
+    background-color: #ffc700;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 50%;
+  right: -2rem;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 4rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .close-button {
+    right: -5.5rem;
+  }
+}

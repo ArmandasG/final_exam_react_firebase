@@ -1,12 +1,12 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 
 const AuthContext = createContext({
   user: {},
-  token:{},
+  token: {},
   isLoggedIn: false,
   isLoading: false,
   feedback: {
@@ -27,84 +27,85 @@ function AuthProvider({ children }) {
     msg: "",
     type: "",
   });
-  const location = useLocation()
+  const location = useLocation();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user && location.pathname==='/shops') {
+      if (user && location.pathname === "/shops") {
         setUser(user);
         setFeedback({
           show: true,
           msg: "User logged in",
           type: "success",
         });
-      } else if (user && (location.pathname==='/login' || location.pathname==='/register')){
-        setUser(user)
+      } else if (
+        user &&
+        (location.pathname === "/login" || location.pathname === "/register")
+      ) {
+        setUser(user);
         setFeedback({
           show: true,
-          msg: 'You are already logged in',
-          type: 'info',   
+          msg: "You are already logged in",
+          type: "info",
         });
-      }
-      else if (!user && location.pathname==='/shops'){
-        setUser(user)
+      } else if (!user && location.pathname === "/shops") {
+        setUser(user);
         setFeedback({
           show: true,
-          msg: 'Unauthorized access',
-          type: 'error',   
+          msg: "Unauthorized access",
+          type: "error",
         });
-      }
-      else {
+      } else {
         setUser(null);
       }
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const {show, msg} = feedback
+  const { show, msg } = feedback;
   useEffect(() => {
-    if (show === true && msg !=='Loading') {
+    if (show === true && msg !== "Loading") {
       setTimeout(() => {
         setFeedback({
           show: false,
-          msg: '',
-          type: '',
-        })
-      }, 2500)
+          msg: "",
+          type: "",
+        });
+      }, 2500);
     }
-  }, [show, msg])
+  }, [show, msg]);
 
   const ui = {
-    showSuccess(msg = '') {
+    showSuccess(msg = "") {
       setFeedback({
         show: true,
-        msg: msg || 'Success',
-        type: 'success',
-      })
+        msg: msg || "Success",
+        type: "success",
+      });
     },
-    showError(msg = '') {
+    showError(msg = "") {
       setFeedback({
         show: true,
-        msg: msg || 'Klaida',
-        type: 'error',
-      })
+        msg: msg || "Klaida",
+        type: "error",
+      });
     },
-    showLoading(msg = '') {
+    showLoading(msg = "") {
       setFeedback({
         show: true,
-        msg: msg || 'Loading...',
-        type: 'info',
-      })
+        msg: msg || "Loading...",
+        type: "info",
+      });
     },
     closeAlert() {
       setFeedback({
         show: false,
-        msg: '',
-        type: '',
-      })
-    }
-  }
+        msg: "",
+        type: "",
+      });
+    },
+  };
 
-  const isLoggedIn = !!user
+  const isLoggedIn = !!user;
 
   const authCtx = {
     user,
@@ -112,7 +113,7 @@ function AuthProvider({ children }) {
     setIsLoading,
     isLoggedIn,
     feedback,
-    ui
+    ui,
   };
 
   return (

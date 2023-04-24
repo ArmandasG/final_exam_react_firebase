@@ -1,77 +1,76 @@
 .innerFormEl {
-    min-height: 70rem;
-    max-width: 130rem;
-    margin-top: 10rem;
-    margin-bottom: 10rem;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 3rem;
-    background: linear-gradient(to top, #4481eb 0%, #04befe 100%);
-    min-height: 85vh;
-    h1 {
-        text-align: center;
-        font-size: 4rem;
-        color: #FFFFFF;
-        margin-bottom: 2rem;
-    };
-    .additional{
-        text-align: center;
-        padding-left: 2rem;
-        color: #FFFFFF;
-        p {
-            display: inline-block;
-        }
-        span {
-            font-style: italic;
-            font-weight: bold;
-            transition: 0.4s;
-        };
-        span:hover{
-color: #FF6262;
-        }
+  min-height: 70rem;
+  max-width: 130rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3rem;
+  background: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+  min-height: 85vh;
+  h1 {
+    text-align: center;
+    font-size: 4rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+  }
+  .additional {
+    text-align: center;
+    padding-left: 2rem;
+    color: #ffffff;
+    p {
+      display: inline-block;
     }
+    span {
+      font-style: italic;
+      font-weight: bold;
+      transition: 0.4s;
+    }
+    span:hover {
+      color: #ff6262;
+    }
+  }
 }
 
 .innerFormEl {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10rem 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10rem 20rem;
 }
 
-.innerFormEl form{
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-};
+.innerFormEl form {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .innerFormEl form button {
-margin-top: 3rem;
-};
+  margin-top: 3rem;
+}
 
-.btnGoogle{
-    margin-top: 3rem;
-    font-size: 2.5rem;
-    line-height: 2rem;
-    img {
-        width: 100%;
-        height: 100%;
-        max-width: 3rem;
-        max-height: 3rem;
-        padding-top: 0.1rem;
-    }
+.btnGoogle {
+  margin-top: 3rem;
+  font-size: 2.5rem;
+  line-height: 2rem;
+  img {
+    width: 100%;
+    height: 100%;
+    max-width: 3rem;
+    max-height: 3rem;
+    padding-top: 0.1rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .innerFormEl {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        padding: 4rem;
-    }
+  .innerFormEl {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 4rem;
+  }
 
-    .btnGoogle{
-        font-size: 2rem;
-        max-height: 12rem;
-    }
-
+  .btnGoogle {
+    font-size: 2rem;
+    max-height: 12rem;
+  }
 }
